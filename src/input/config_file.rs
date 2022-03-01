@@ -83,6 +83,19 @@ pub struct ConfigFile {
     /// A list of environment variable names that will be set to "1" if running `adam test`.
     #[serde(default)]
     pub test_env_variables: Option<Vec<String>>,
+
+    /// The command to run when executing a check.
+    #[serde(default)]
+    pub check_command: Option<String>,
+
+    /// The arguments to pass the check command when executing a check.
+    #[serde(default)]
+    pub check_args: Option<Vec<String>>,
+
+    /// If true, will always run the check command prior to executing a build, run, or release.
+    /// If the command returns a non-zero status, adam will not continue its operation.
+    #[serde(default)]
+    pub always_check: bool,
 }
 
 impl ConfigFile {
@@ -144,6 +157,16 @@ impl ConfigFile {
 
         if let Some(test_env_variables) = self.test_env_variables {
             run_options.task.test_env_variables = test_env_variables;
+        }
+
+        if let Some(check_command) = self.check_command {
+            run_options.task.check_command = Some(check_command);
+            if let Some(check_args) = self.check_args {
+                run_options.task.check_args = Some(check_args);
+            }
+            if self.always_check {
+                run_options.task.always_check = true;
+            }
         }
     }
 }
