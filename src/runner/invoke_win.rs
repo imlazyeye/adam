@@ -16,6 +16,14 @@ pub fn invoke_release(
         igor.arg("-v");
     }
 
+    let command = format!(
+        "{} -j=8 -options={} -v -- {} PackageZip",
+        macros.igor_path.clone().to_str().unwrap(),
+        build_bff.display(),
+        gm_artifacts::PLATFORM_KIND.to_string(),
+    );
+    println!("{command}");
+
     // add the platform
     igor.arg("--")
         .arg(gm_artifacts::PLATFORM_KIND.to_string())

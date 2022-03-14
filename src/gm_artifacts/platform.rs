@@ -32,7 +32,7 @@ pub const DEFAULT_PLATFORM_DATA: DefaultPlatformData = DefaultPlatformData {
         DEFAULT_RUNTIME_NAME
     ),
     stable_application_path: "/Applications/GameMaker Studio 2.app/Contents/MonoBundle",
-    beta_application_path: "/Applications/GameMaker Studio 2-Beta.app/Contents/MonoBundle",
+    beta_application_path: "/Applications/GameMaker Studio 2 Beta.app/Contents/MonoBundle",
 
     target_mask: 2,
 };
