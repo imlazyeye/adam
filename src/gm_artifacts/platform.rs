@@ -53,7 +53,7 @@ pub static DEFAULT_PLATFORM_DATA: DefaultPlatformData = {
             "C:/ProgramData/GameMakerStudio2-Beta/Cache/runtimes/runtime-",
             DEFAULT_RUNTIME_NAME
         ),
-        stable_application_path: "C:/Program Files/GameMaker Studio 2/GameMaker.exe",
+        stable_application_path: "C:/Program Files/GameMaker/GameMaker.exe",
         beta_application_path: "C:/Program Files/GameMaker Studio 2-Beta/GameMaker-Beta.exe",
 
         target_mask: 64,
